@@ -1,0 +1,134 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+*:active,
+*:focus {
+   outline: none;
+}
+
+.container {
+   max-width: 1200px;
+   width: 70%;
+   margin: 0 auto;
+}
+
+.title {
+   margin-top: 50px;
+   text-align: center;
+   font-weight: 700;
+   letter-spacing: -1px;
+   color: #576bcd;
+}
+
+.form {
+   width: 70%;
+   max-width: 450px;
+   margin: 30px auto;
+   padding: 40px;
+   border-radius: 5px;
+   box-shadow: 0px 4px 8px 1px rgba(34, 60, 80, 0.2);
+}
+
+.form__title {
+   font-size: 1.4em;
+   font-weight: 500;
+}
+
+.email input {
+   margin-top: 40px;
+}
+.password input {
+   margin-top: 8px;
+}
+.forgot-password {
+   margin-top: 20px;
+   float: right;
+   text-decoration: none;
+   font-size: 0.9em;
+   font-weight: 500;
+   color: #576bcd;
+}
+
+.form__input {
+   position: relative;
+}
+.form__input > p {
+   margin: 0;
+   top: 0;
+   left: 15px;
+   position: absolute;
+   transition: all 0.3s;
+}
+.form__input > input {
+   padding: 10px 15px;
+   width: 100%;
+   border: 1px solid #c1c1c1c1;
+   border-radius: 5px;
+   cursor: pointer;
+}
+.form__input > input:focus + p,
+.form__input > input:not(:placeholder-shown) + p {
+   transform: translate(-15px, -35px);
+   font-size: 0.9em;
+   font-weight: 500;
+}
+.form__input > input:focus,
+.form__input > input:active {
+   border: 2px solid #aab4e4;
+}
+
+.checkbox {
+   display: flex;
+   align-items: center;
+   width: 185px;
+   font-size: 0.9em;
+   font-weight: 500;
+   margin: 20px 0;
+   cursor: pointer;
+}
+.checkbox input {
+   margin-right: 8px;
+   width: 12px;
+   height: 12px;
+   cursor: pointer;
+}
+
+.btn {
+   width: 100%;
+   background-color: #576bcd;
+   padding: 10px 0;
+   text-align: center;
+   font-size: 1em;
+   font-weight: 500;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.sign-on {
+   display: block;
+   width: 100%;
+   margin-top: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 1em;
+   font-weight: 700;
+   letter-spacing: -0.5px;
+   color: #576bcd;
+}
+
+.sign-up {
+   width: 100%;
+   text-align: center;
+   font-weight: 500;
+   letter-spacing: -0.5px;
+}
+.sign-up a {
+   text-decoration: none;
+   font-weight: 500;
+   color: #576bcd;
+}
