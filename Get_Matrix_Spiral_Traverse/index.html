@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   <div class="container">
+      <h1 class="title">Get Matrix Spiral Traverse</h1>
+      <form class="form">
+         <label for="columns" class="form__input">
+            <input id="columns" type="number" placeholder=" " name="columns" required>
+            <p>Columns</p>
+         </label>
+         <label for="rows" class="form__input">
+            <input id="rows" type="number" placeholder=" " name="rows" required>
+            <p>Rows</p>
+         </label>
+         <label for="startColumn" class="form__input">
+            <input id="startColumn" type="number" placeholder=" " name="startColumn" required>
+            <p>Start Column</p>
+         </label>
+         <label for="startRow" class="form__input">
+            <input id="startRow" type="number" placeholder=" " name="startRow" required>
+            <p>Start Row</p>
+         </label>
+         <select name="direction" class="direction">
+            <option selected disabled>Direction</option>
+            <option value="left">left</option>
+            <option value="up">up</option>
+            <option value="right">right</option>
+            <option value="down">down</option>
+         </select>
+         <button class="btn" name="submit" type="submit" id="submit">Generate</button>
+      </form>
+      <table class="table"></table>
+      <div class="result"></div>
+
+   </div>
+   <script src="js/script.js"></script>
+</body>
+
+</html>
