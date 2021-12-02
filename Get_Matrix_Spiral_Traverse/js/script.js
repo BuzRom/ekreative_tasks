@@ -19,16 +19,13 @@ const getSpiralTraverse = (column, row, arr, direction) => {
    let startCol = column - 1;
    let endRow = row - 1;
    let startRow = row - 1;
-   let counter = 0;
+   let step = 0;
    const arrLength = [].concat(...arr);
 
    while (arrLength.length != res.length) {
       const goLeft = () => {
-         for (let i = 0; i <= counter; i++) {
-            if (endRow < 0 || startCol - i < 0 || endRow > arr.length - 1 || startCol - i > arr[0].length - 1) {
-               continue;
-            }
-            else {
+         for (let i = 0; i <= step; i++) {
+            if (!(endRow < 0 || startCol - i < 0 || endRow > arr.length - 1 || startCol - i > arr[0].length - 1)) {
                res.push(arr[endRow][startCol - i]);
             }
          }
@@ -36,11 +33,8 @@ const getSpiralTraverse = (column, row, arr, direction) => {
       };
 
       const goUp = () => {
-         for (let i = 0; i <= counter; i++) {
-            if (endRow - i < 0 || endCol < 0 || endRow - i > arr.length - 1 || endCol > arr[0].length - 1) {
-               continue;
-            }
-            else {
+         for (let i = 0; i <= step; i++) {
+            if (!(endRow - i < 0 || endCol < 0 || endRow - i > arr.length - 1 || endCol > arr[0].length - 1)) {
                res.push(arr[endRow - i][endCol]);
             }
          }
@@ -48,11 +42,8 @@ const getSpiralTraverse = (column, row, arr, direction) => {
       };
 
       const goRight = () => {
-         for (let i = 0; i <= counter; i++) {
-            if (startRow < 0 || endCol + i < 0 || startRow > arr.length - 1 || endCol + i > arr[0].length - 1) {
-               continue;
-            }
-            else {
+         for (let i = 0; i <= step; i++) {
+            if (!(startRow < 0 || endCol + i < 0 || startRow > arr.length - 1 || endCol + i > arr[0].length - 1)) {
                res.push(arr[startRow][endCol + i]);
             }
          }
@@ -60,11 +51,8 @@ const getSpiralTraverse = (column, row, arr, direction) => {
       }
 
       const goDown = () => {
-         for (let i = 0; i <= counter; i++) {
-            if (startRow + i < 0 || startCol < 0 || startRow + i > arr.length - 1 || startCol > arr[0].length - 1) {
-               continue;
-            }
-            else {
+         for (let i = 0; i <= step; i++) {
+            if (!(startRow + i < 0 || startCol < 0 || startRow + i > arr.length - 1 || startCol > arr[0].length - 1)) {
                res.push(arr[startRow + i][startCol]);
             }
          }
@@ -72,49 +60,49 @@ const getSpiralTraverse = (column, row, arr, direction) => {
       };
 
       switch (direction) {
-         case ('left'):
+         case 'left':
             goLeft();
             goUp();
-            counter++;
+            step++;
             goRight();
             goDown();
-            counter++;
+            step++;
             break;
 
-         case ('up'):
+         case 'up':
             goUp();
             goRight();
-            counter++;
+            step++;
             goDown();
             goLeft();
-            counter++;
+            step++;
             break;
 
-         case ('right'):
+         case 'right':
             goRight();
             goDown();
-            counter++;
+            step++;
             goLeft();
             goUp();
-            counter++;
+            step++;
             break;
 
-         case ('down'):
+         case 'down':
             goDown();
             goLeft();
-            counter++;
+            step++;
             goUp();
             goRight();
-            counter++;
+            step++;
             break;
 
          default:
             goLeft();
             goUp();
-            counter++;
+            step++;
             goRight();
             goDown();
-            counter++;
+            step++;
             break;
       }
    }
@@ -123,8 +111,7 @@ const getSpiralTraverse = (column, row, arr, direction) => {
 
 const getResult = (column, row, startColumn, startRow, direction) => {
    const matrix = getMatrix(column, row);
-   const result = getSpiralTraverse(startColumn, startRow, matrix, direction);
-   return result;
+   return getSpiralTraverse(startColumn, startRow, matrix, direction);
 }
 
 const form = document.querySelector('.form');
@@ -158,6 +145,5 @@ form.addEventListener('submit', e => {
 
    const result = document.querySelector('.result');
    result.innerHTML = '';
-   const res = getResult(column, row, startColumn, startRow, direction).join('.');
-   result.textContent = res;
+   result.textContent = getResult(column, row, startColumn, startRow, direction).join('.');
 })
